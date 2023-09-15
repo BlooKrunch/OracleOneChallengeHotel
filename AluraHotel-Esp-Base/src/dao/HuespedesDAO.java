@@ -21,7 +21,7 @@ public class HuespedesDAO {
 	
 	public void guardar(Huespedes huesped) {
 		try {
-			String sql = "INSERT INTO huespedes (nombre,apellido,fecha_nacimiento,nacionalidad,telefono,IdReserva) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO HUESPEDES (NOMBRE,APELLIDO,FECHANACIMIENTO,NACIONALIDAD,TELEFONO,IDRESERVA) VALUES(?,?,?,?,?,?)";
 			try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
 				pstm.setString(1, huesped.getNombre());
@@ -46,7 +46,7 @@ public class HuespedesDAO {
 	public List<Huespedes> listarHuespedes() {
 		List<Huespedes> huespedes = new ArrayList<Huespedes>();
 		try {
-			String sql = "SELECT id, nombre, apellido, fecha_nacimiento, nacionalidad, telefono, idReserva FROM huespedes";
+			String sql = "SELECT ID, NOMBRE, APELLIDO, FECHANACIMIENTO, NACIONALIDAD, TELEFONO, IDRESERVA FROM HUESPEDES";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.execute();
@@ -63,7 +63,7 @@ public class HuespedesDAO {
 		List<Huespedes> huespedes = new ArrayList<Huespedes>();
 		try {
 
-			String sql = "SELECT id, nombre, apellido, fecha_nacimiento, nacionalidad, telefono, idReserva FROM huespedes WHERE idReserva = ?";
+			String sql = "SELECT ID, NOMBRE, APELLIDO, FECHANACIMIENTO, NACIONALIDAD, TELEFONO, IDRESERVA FROM HUESPEDES WHERE IDRESERVA = ?";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setString(1, id);
@@ -79,7 +79,7 @@ public class HuespedesDAO {
 	
 	public void Actualizar(String nombre, String apellido, Date fechaN, String nacionalidad, String telefono, Integer idReserva, Integer id) {
 		try (PreparedStatement stm = connection
-				.prepareStatement("UPDATE huespedes SET nombre = ?, apellido = ?, fecha_nacimiento = ?, nacionalidad = ?, telefono = ?, idReserva = ? WHERE id = ?")) {
+				.prepareStatement("UPDATE HUESPEDES SET NOMBRE = ?, APELLIDO = ?, FECHANACIMIENTO = ?, NACIONALIDAD = ?, TELEFONO = ?, IDRESERVA = ? WHERE ID = ?")) {
 			stm.setString(1, nombre);
 			stm.setString(2, apellido);
 			stm.setDate(3, fechaN);
@@ -93,7 +93,7 @@ public class HuespedesDAO {
 		}
 	}
 	public void Eliminar(Integer id) {
-		try (PreparedStatement stm = connection.prepareStatement("DELETE FROM huespedes WHERE id = ?")) {
+		try (PreparedStatement stm = connection.prepareStatement("DELETE FROM HUESPEDES WHERE ID = ?")) {
 			stm.setInt(1, id);
 			stm.execute();
 		} catch (SQLException e) {

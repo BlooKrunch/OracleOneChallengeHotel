@@ -20,7 +20,7 @@ private Connection connection;
 	
 	public void guardar(Reservas reserva) {
 		try {
-			String sql = "INSERT INTO reservas (fecha_entrada, fecha_salida, valor, forma_Pago) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO RESERVAS (FECHAENTRADA, FECHASALIDA, VALOR, FORMAPAGO) VALUES (?, ?, ?, ?)";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
@@ -46,7 +46,7 @@ private Connection connection;
 	public List<Reservas> buscar() {
 		List<Reservas> reservas = new ArrayList<Reservas>();
 		try {
-			String sql = "SELECT id, fecha_entrada, fecha_salida, valor, forma_pago FROM reservas";
+			String sql = "SELECT ID, FECHAENTRADA, FECHASALIDA, VALOR, FORMAPAGO FROM RESERVAS";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.execute();
@@ -63,7 +63,7 @@ private Connection connection;
 		List<Reservas> reservas = new ArrayList<Reservas>();
 		try {
 
-			String sql = "SELECT id, fecha_entrada, fecha_salida, valor, forma_Pago FROM reservas WHERE id = ?";
+			String sql = "SELECT ID, FECHAENTRADA, FECHASALIDA, VALOR, FORMAPAGO FROM RESERVAS WHERE ID = ?";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setString(1, id);
@@ -78,7 +78,7 @@ private Connection connection;
 	}
 	
 	public void Eliminar(Integer id) {
-		try (PreparedStatement stm = connection.prepareStatement("DELETE FROM reservas WHERE id = ?")) {
+		try (PreparedStatement stm = connection.prepareStatement("DELETE FROM RESERVAS WHERE ID = ?")) {
 			stm.setInt(1, id);
 			stm.execute();
 		} catch (SQLException e) {
@@ -88,7 +88,7 @@ private Connection connection;
 	
 	public void Actualizar(Date fechaE, Date fechaS, String valor, String formaPago, Integer id) {
 		try (PreparedStatement stm = connection
-				.prepareStatement("UPDATE reservas SET fecha_entrada = ?, fecha_salida = ?, valor = ?, forma_Pago = ? WHERE id = ?")) {
+				.prepareStatement("UPDATE RESERVAS SET FECHAENTRADA = ?, FECHASALIDA = ?, VALOR = ?, FORMAPAGO = ? WHERE ID = ?")) {
 			stm.setDate(1, fechaE);
 			stm.setDate(2, fechaS);
 			stm.setString(3, valor);
