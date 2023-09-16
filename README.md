@@ -46,8 +46,9 @@ Aplicacion enfocada al uso de Java y JDBC para la gestion de una base de datos c
      - - `Funcionalidad 6`: Editar-
         ![BotonEditar](https://github.com/BlooKrunch/OracleOneChallengeHotel/assets/36406272/74aec67a-7c87-4194-8e26-1330817cd7d5)
 
-       - - `Funcionalidad 7`: Eliminar-
+      - - `Funcionalidad 7`: Eliminar-
         ![EliminarRegistro](https://github.com/BlooKrunch/OracleOneChallengeHotel/assets/36406272/d341d90a-ff91-401d-8ea4-1c9ce6946334)
+        ![ResultadoEliminado](https://github.com/BlooKrunch/OracleOneChallengeHotel/assets/36406272/713f23e6-6f81-4aaf-9e1c-b9a77e4fe213)
 
-
+        
   
